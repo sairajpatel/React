@@ -1,0 +1,38 @@
+React is considered as library not frame-work.
+React creats it's own virtual dom.
+React provides you to render html in js by declaring there there tags 
+While creating projects with vite use .jsx instead of js just because it is an requirment of vite library
+
+Imp:- Component function name should be capitalized for first letter otherwise it won't run!
+
+React manipulates the virtual dom rather than manipulating the orginal dom after it makes changes in real dom.
+
+React creates the virtual dom.
+
+react trees has={
+    type'a',
+    props:{
+        href:'https :google.Com',
+        target:"_blank"
+    },
+    children:'Click me to visit google'
+}
+to render above tree customRender is used to render above tree with id of html.
+to create manullay by object by react:-
+React.createElement(
+    'a',
+    {href:'https:google.com',target:'_blank'},
+    'click me to visit google'
+)
+imp:-we cannont write declare variables in that object because react dom object does not allow to declare it 
+You can just call it.
+
+React Router is not offical libaray it's third party library.
+
+React router mainly uses to links one Link and other one is navlinks there is no such a difference between both 
+
+RouterProvider always takes props of router.
+4
+to use params react uses useParams to send with url
+for eg:-
+const {useId}=useParams();
