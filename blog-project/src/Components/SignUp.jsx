@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useState} from 'react'
 import {Link} from 'react-router-dom'
 import Input from './Input'
 import Button from './Button'
@@ -6,34 +6,34 @@ import {useForm} from 'react-hook-form'
 import {login} from '../Store/authSlice'
 import {useDispatch} from 'react-redux'
 import authService from '../AppWrite/auth'
-import {Navigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 function SignUp() {
-    const {register,handleSubmit}=useForm();
-    const dispatch=useDispatch();
-    const [error,setError]=React.useState();
-    const signUp= async(data)=>{
-        setError("");
-        try{
-            const userData =await authService.createAccount(data);
-            if(userData){
-            const user=await authService.getCurrentUser();
-            if(user) dispatch(login(user));
-            Navigate("/");
-            
-            }
+    const navigate = useNavigate()
+    const [error, setError] = useState("")
+    const dispatch = useDispatch()
+    const {register, handleSubmit} = useForm()
 
-            
+    const create = async(data) => {
+        setError("")
+        try {
+            const userData = await authService.createAccount(data)
+            if (userData) {
+                const userData = await authService.getCurrentUser()
+                if(userData) dispatch(login(userData));
+                navigate("/")
+            }
+        } catch (error) {
+            setError(error.message)
+        }
     }
-    catch(error){
-        setError(error.message);
-    }
-    return (
-        <div className="flex items-center justify-center">
+
+  return (
+    <div className="flex items-center justify-center">
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
             <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
+                        {/* <Logo width="100%" /> */}
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
@@ -86,6 +86,6 @@ function SignUp() {
     </div>
     )
 }
-}
+
 
 export default SignUp
