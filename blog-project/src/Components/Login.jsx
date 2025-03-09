@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import Input from './Input'
 import Button from './Button'
 import {useForm} from 'react-hook-form'
-import {login} from '../Store/authSlice'
+import {login as authLogin} from '../Store/authSlice'
 import {useDispatch} from 'react-redux'
 import authService from '../AppWrite/auth'
 
@@ -11,7 +11,7 @@ function Login() {
     const {register,handleSubmit}=useForm();
     const navigate=useNavigate();
     const dispatch=useDispatch();
-    const [error,setError]=React.useState(null);
+    const [error,setError]=React.useState("");
     const login=async(data)=>{
         setError("");
         try{
@@ -19,7 +19,7 @@ function Login() {
           if(session){
             const userData = await authService.getCurrentUser();
             if(userData){
-                dispatch(login(userData));
+                dispatch(authLogin(userData));
                 navigate('/');
             }
           }

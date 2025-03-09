@@ -5,9 +5,9 @@ import appWriteService from '../AppWrite/config'
 function PostCard({$id,title,featuredImage}) {
     return (
         <Link to={`/post/${$id}`}>
-             <div className='w-full bg-gray-100 rounded-xl p-4'>
-             <div className='w-full justify-center mb-4'>
-                <img src={appWriteService.getFilePreview(featuredImage)} alt={title}  className='rounded-xl'/>
+             <div className='w-full bg-gray-100 rounded-xl p-3'>
+             <div className='w-full justify-center'>
+                <img src={appWriteService.getFilePreview(featuredImage)} alt={title}  className="w-full h-auto max-w-[500px] max-h-[500px] object-cover rounded-xl"/>
              </div>
              <h2
             className='text-xl font-bold'
