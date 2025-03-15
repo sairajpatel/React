@@ -1,53 +1,34 @@
 import React from 'react'
+import AcceptTask from './AcceptTask'
+import FailedTask from './FailedTask'
+import NewTask from './NewTask'
+import CompleteTask from './CompleteTask'
 
-function TaskList() {
+function TaskList({data}) {
     return (
         <div id='tasklist' className='h-[45%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-5  mt-10 '>
-            <div className=' flex-shrink-0 h-full w-[300px] bg-red-400 rounded-xl '>
-                <div className='flex justify-between items-center py-4 px-2'>
-                    <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-                    <h4 className='text-sm'>20 Feb 2025</h4>
-                </div>
-                <h2 className='mt-5 text-2xl font-semibold px-4'>Make a Youtbe videp</h2>
-                <p className='text-sm mt-2 px-4'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempora ratione illum veniam error corporis.
-                </p>
-
-            </div>
+        {data.tasks.map((elem,key)=>{
+          if(elem.active){
+           return <AcceptTask key={key} data={elem}/>
+          }
+          if(elem.completed){
+          
+            return <CompleteTask key={key} data={elem}/>
+          
            
-            <div className=' flex-shrink-0 h-full w-[300px] bg-yellow-400 rounded-xl '>
-                <div className='flex justify-between items-center py-4 px-2'>
-                    <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-                    <h4 className='text-sm'>20 Feb 2025</h4>
-                </div>
-                <h2 className='mt-5 text-2xl font-semibold px-4'>Make a Youtbe videp</h2>
-                <p className='text-sm mt-2 px-4'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempora ratione illum veniam error corporis.
-                </p>
 
-            </div>
-            <div className=' flex-shrink-0 h-full w-[300px] bg-green-400 rounded-xl '>
-                <div className='flex justify-between items-center py-4 px-2'>
-                    <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-                    <h4 className='text-sm'>20 Feb 2025</h4>
-                </div>
-                <h2 className='mt-5 text-2xl font-semibold px-4'>Make a Youtbe videp</h2>
-                <p className='text-sm mt-2 px-4'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempora ratione illum veniam error corporis.
-                </p>
+          }
+         if(elem.new_task){
+          
+            return <NewTask key={key} data={elem}/>;
+``            
+         }
+         if(elem.failed){
+            return <FailedTask key={key} data={elem}/>
+         }
+        })}
 
-            </div>
-            <div className=' flex-shrink-0 h-full w-[300px] bg-blue-400 rounded-xl '>
-                <div className='flex justify-between items-center py-4 px-2'>
-                    <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-                    <h4 className='text-sm'>20 Feb 2025</h4>
-                </div>
-                <h2 className='mt-5 text-2xl font-semibold px-4'>Make a Youtbe videp</h2>
-                <p className='text-sm mt-2 px-4'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum tempora ratione illum veniam error corporis.
-                </p>
-
-            </div>
+           
             
         
         </div>

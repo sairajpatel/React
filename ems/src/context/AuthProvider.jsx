@@ -5,6 +5,7 @@ export const AuthContext=createContext();
 
 function AuthProvider({children}) {
     const [userData,setUserData]=useState(null);
+   
     
     useEffect(()=>{
         const {employees,admin} =getLocalStoarge();

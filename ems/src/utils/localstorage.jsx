@@ -1,5 +1,6 @@
-const employees=[
+const employees = [
     {
+        "firstName": "Aarav",
         "email": "employee1@example.com",
         "password": "123",
         "tasks": [
@@ -23,9 +24,11 @@ const employees=[
                 "completed": false,
                 "failed": false
             }
-        ]
+        ],
+        "taskCounts": { "active": 1, "new_task": 1, "completed": 0, "failed": 0 }
     },
     {
+        "firstName": "Vihaan",
         "email": "employee2@example.com",
         "password": "123",
         "tasks": [
@@ -39,9 +42,11 @@ const employees=[
                 "completed": false,
                 "failed": false
             }
-        ]
+        ],
+        "taskCounts": { "active": 1, "new_task": 1, "completed": 0, "failed": 0 }
     },
     {
+        "firstName": "Arjun",  // Replaced Ishaan with Arjun
         "email": "employee3@example.com",
         "password": "123",
         "tasks": [
@@ -55,9 +60,11 @@ const employees=[
                 "completed": true,
                 "failed": false
             }
-        ]
+        ],
+        "taskCounts": { "active": 0, "new_task": 0, "completed": 1, "failed": 0 }
     },
     {
+        "firstName": "Kabir",
         "email": "employee4@example.com",
         "password": "123",
         "tasks": [
@@ -71,9 +78,11 @@ const employees=[
                 "completed": false,
                 "failed": false
             }
-        ]
+        ],
+        "taskCounts": { "active": 1, "new_task": 1, "completed": 0, "failed": 0 }
     },
     {
+        "firstName": "Reyansh",
         "email": "employee5@example.com",
         "password": "123",
         "tasks": [
@@ -87,22 +96,25 @@ const employees=[
                 "completed": false,
                 "failed": true
             }
-        ]
+        ],
+        "taskCounts": { "active": 0, "new_task": 0, "completed": 0, "failed": 1 }
     }
-]
-const admin=[
+];
+
+const admin = [
     {
         "email": "admin@example.com",
         "password": "123"
     }
-]
-export const setLocalStoarge=()=>{
-   localStorage.setItem('employees',JSON.stringify(employees));
-   localStorage.setItem('admin',JSON.stringify(admin));
-}
-export const getLocalStoarge=()=>{
-const employees=JSON.parse(localStorage.getItem('employees'))
-const admin=JSON.parse(localStorage.getItem('admin'))
-return {employees,admin}
+];
 
-}
+export const setLocalStoarge = () => {
+    localStorage.setItem('employees', JSON.stringify(employees));
+    localStorage.setItem('admin', JSON.stringify(admin));
+};
+
+export const getLocalStoarge = () => {
+    const employees = JSON.parse(localStorage.getItem('employees'));
+    const admin = JSON.parse(localStorage.getItem('admin'));
+    return { employees, admin };
+};
