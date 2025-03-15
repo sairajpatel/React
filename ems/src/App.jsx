@@ -46,7 +46,7 @@ console.log(loggedInUserData);
   return (
     <>
     {!user ?<Login handleLogin={handleLogin}/>: ''}
-    {user=='admin' ? <AdminDashboard data={loggedInUserData}/> : user=='employee' ?<EmployeeDashboard data={loggedInUserData}/>:null}
+    {user=='admin' ? <AdminDashboard changeuser={setUser}/> : user=='employee' ?<EmployeeDashboard changeuser={setUser} data={loggedInUserData}/>:null}
     </> 
   )
 }

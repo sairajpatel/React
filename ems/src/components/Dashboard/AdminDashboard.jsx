@@ -4,10 +4,10 @@ import CreateTask from '../other/CreateTask';
 import AllTask from '../other/AllTask';
 
 
-function AdminDashboard() {
+function AdminDashboard(props) {
     return (
         <div className='h-screen w-full p-7'>
-            <Header/>
+            <Header changeUser={props.changeUser}/>
             <CreateTask/>
             <AllTask/>
         </div>
